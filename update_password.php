@@ -7,7 +7,7 @@ require 'connect.php';
 // Nhận dữ liệu từ yêu cầu POST
 $username = $_POST['Tendangnhap'];
 $phone = $_POST['Sdt'];
-$new_password = $_POST['new_password'];
+$new_password = $_POST['Matkhau'];
 
 // Kiểm tra dữ liệu đầu vào
 if (empty($username) || empty($phone) || empty($new_password)) {

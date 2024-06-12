@@ -1,20 +1,17 @@
 <?php
 require "connect.php";
 
-// Kiểm tra nếu có tham số 'title' trong yêu cầu GET
+// Kiểm tra nếu có tham số 'Id_user' trong yêu cầu GET
 if (isset($_GET['Id_user'])) {
     $userId = $_GET['Id_user'];
 
     // Chuẩn bị truy vấn với điều kiện WHERE
-    $query = "SELECT `favoritebook`.`Id_favoritebook`, `favoritebook`.`Id_user`, `favoritebook`.`Id_book`,
-            `book`.`Tensach`, `book`.`Anhbia` FROM `favoritebook`
-              JOIN `book` ON `favoritebook`.`Id_book` = `book`.`Id_book`
-              WHERE `favoritebook`.`Id_user` = ?";
+    $query = "SELECT `Tendangnhap`, `Sdt` FROM `user_book` WHERE `Id_user` = ?";
 
     // Chuẩn bị câu lệnh SQL
     if ($stmt = $conn->prepare($query)) {
         // Gán giá trị cho tham số
-        $stmt->bind_param("s", $userId);
+        $stmt->bind_param("i", $userId);
         // Thực thi truy vấn
         $stmt->execute();
         // Lấy kết quả
@@ -32,7 +29,7 @@ if (isset($_GET['Id_user'])) {
         echo json_encode(array("error" => "Failed to prepare statement"));
     }
 } else {
-    // Trả về lỗi nếu không có tham số 'title' trong yêu cầu
-    echo json_encode(array("error" => "No title parameter provided"));
+    // Trả về lỗi nếu không có tham số 'Id_user' trong yêu cầu
+    echo json_encode(array("error" => "No Id_user parameter provided"));
 }
 ?>
