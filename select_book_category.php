@@ -36,19 +36,4 @@ if (isset($_GET['Id_category'])) {
     echo json_encode(array("error" => "No title parameter provided"));
 }
 
-// require "connect.php";
-
-//     $query = "SELECT `book`.`Tensach` as 'title', `book`.`Tacgia` as 'authors', `book`.`Mota` as 'description',
-//                `book`.`Sobinhluan` as 'num_comment', `book`.`Sosao` as 'num_star', `category`.`Tentheloai`
-//                  FROM `book`
-//                  JOIN `book_category` ON `book_category`.`Id_book` = `book`.`Id_book`
-//                  JOIN `category` ON `book_category`.`Id_category` = `category`.`Id_category`";
-
-//     $check = mysqli_query($conn, $query);
-//     $item  = array();
-//     while($res = mysqli_fetch_assoc($check)){
-//         $item[]  = $res;
-//     }
-
-//     echo json_encode($item);
 ?>

@@ -7,7 +7,7 @@ if (isset($_GET['Id_user'])) {
 
     // Chuẩn bị truy vấn với điều kiện WHERE
     $query = "SELECT `favoritebook`.`Id_favoritebook`, `favoritebook`.`Id_user`, `favoritebook`.`Id_book`,
-            `book`.`Tensach`, `book`.`Anhbia` FROM `favoritebook`
+            `book`.`Tensach` as 'title', `book`.`Anhbia` as 'image_url' FROM `favoritebook`
               JOIN `book` ON `favoritebook`.`Id_book` = `book`.`Id_book`
               WHERE `favoritebook`.`Id_user` = ?";
 
