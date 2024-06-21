@@ -37,7 +37,7 @@
                 <div class="card">
                     <h5 class="card-header">Book Details</h5>
                     <div class="card-body">
-                        <form action="update_book.php" method="post" enctype="multipart/form-data">
+                        <form action="update_book.php" method="post">
                             <div class="form-group">
                                 <label for="inputTitle" class="col-form-label">Title</label>
                                 <input id="inputTitle" type="text" name="title" class="form-control" value="<?php echo $book['Tensach']; ?>" required>
@@ -55,10 +55,10 @@
                                 <input id="inputReviews" type="number" name="reviews" class="form-control" value="<?php echo $book['Sobinhluan']; ?>" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="inputImage" class="col-form-label">Select Image</label>
-                                <input id="inputImage" type="file" name="image" class="form-control-file">
+                                <label for="inputImage" class="col-form-label">Image URL</label>
+                                <input id="inputImage" type="text" name="image" class="form-control" value="<?php echo $book['Anhbia']; ?>">
                                 <?php if(!empty($book['Anhbia'])): ?>
-                                    <img src="<?php echo $book['Anhbia']; ?>" alt="Book Cover" style="max-width: 100px;">
+                                    <img src="<?php echo $book['Anhbia']; ?>" alt="Book Cover" style="max-width: 100px; margin-top: 10px;">
                                 <?php endif; ?>
                             </div>
                             <input type="hidden" name="id" value="<?php echo $book['Id_book']; ?>">
